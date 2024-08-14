@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className="flex justify-between py-2 my-2 bg-sky-500 text-white shadow-md">
+
+      <div className="flex">
+        <p className="ml-2">Site Logo will be here</p>
+      </div>
+      <div className="flex">
+                <Link className="mx-4" href={"/"}>Home</Link>
+                <Link className="mx-4" href={"/products"}>Products</Link>
+                <Link className="mx-4" href={"/services"}>Services</Link>
+                <Link className="mx-4" href={"/aboutUs"}>About Us</Link>
+      </div>
+                
+      </div>
+        {children}
+
+        <div className="flex justify-center py-8 my-2 footer text-white shadow-lg">
+                <div className="flex">
+                          <Link className="mx-4" href={"/"}>Home</Link>
+                          <Link className="mx-4" href={"/news"}>News</Link>
+                          <Link className="mx-4" href={"/aboutUs"}>About</Link>
+                          <Link className="mx-4" href={"/contactUs"}>Contact Us</Link>
+                </div>   
+</div>
+       
+        </body>
+      
     </html>
   );
 }
